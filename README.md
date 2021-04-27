@@ -125,7 +125,7 @@ telegraf --config /etc/telegraf/telegraf.conf --config-directory /etc/telegraf/t
 
 The real value of `test-wait` is greather than  the maximum `poll_interval` you defined.
 
-At this moment the role doesn't perform tests to validate the configuration of the external plugin.
+At this moment the role doesn't perform tests to validate the configuration of the external plugins.
 
 License
 -------
