@@ -1,0 +1,22 @@
+---
+- name: Add CSI Shared Cloudsmith Repository
+  shell:
+    curl -1sLf 'https://dl.cloudsmith.io/public/csi/shared/cfg/setup/bash.rpm.sh' \
+      sudo -E bash
+  args:
+    executable: /bin/bash
+    creates: /etc/yum.repos.d/csi-shared.repo
+    warn: no
+
+- name: Install CSI Telegraf External Plugins
+  dnf:
+    name: CSI-telegraf-plugins
+    state: present
+
+- name: Remove bundled config files
+  file:
+    name: /etc/CSI-telegraf-plugins/{{ item }}.conf
+    state: absent
+  loop:
+    - ds389
+    - ldap_org

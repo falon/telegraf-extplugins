@@ -1,0 +1,10 @@
+#
+# {{ ansible_managed }}
+#
+
+#### {{ item.name }} ####
+
+[[inputs.{{ item.plugin }}]]
+{% for conf in item.config %}
+  {{ conf }}
+{% endfor %}

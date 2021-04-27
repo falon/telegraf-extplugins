@@ -1,0 +1,12 @@
+- name: "Configure CSI Telegraf External Plugins"
+  template:
+    src: "templates/plugin.conf.j2"
+    dest: "{{ item.path |default('/etc/CSI-telegraf-plugins') }}/{{ item.name }}.conf"
+    owner: telegraf
+    group: telegraf
+    mode: 0640
+  loop: "{{ telegraf_plugins_external }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: item.only_in_this_host is not defined or item.only_in_this_host == inventory_hostname
+  notify: Restart Telegraf

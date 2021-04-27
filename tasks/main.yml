@@ -1,0 +1,5 @@
+---
+# tasks file for telegraf-extplugins
+
+- include: install.yml
+- include: configure.yml

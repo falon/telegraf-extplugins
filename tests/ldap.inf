@@ -1,0 +1,18 @@
+[general]
+;config_version = 2
+full_machine_name = localhost
+strict_host_checking = False
+
+[slapd]
+;user=dirsrv
+;group= dirsrv
+port= 389
+instance_name = example
+;root_dn = cn=Directory Manager
+root_password = ldapassword
+self_sign_cert = False
+
+[backend-userroot]
+create_suffix_entry = True
+sample_entries = yes
+suffix = o=myorg,c=en
