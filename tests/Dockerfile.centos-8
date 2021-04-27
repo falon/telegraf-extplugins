@@ -23,7 +23,7 @@ RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 RUN dnf -y install 'dnf-command(config-manager)'
 RUN dnf config-manager --set-enabled powertools
 RUN dnf -y module enable 389-ds:1.4
-RUN dnf -y install 389-ds-base
+RUN dnf -y install 389-ds-base python3-lib389
 
 
 VOLUME ["/sys/fs/cgroup"]
