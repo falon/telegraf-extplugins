@@ -1,7 +1,10 @@
 ---
 ## Inspired by https://blog.travis-ci.com/2017-11-30-testing-ansible-roles-using-docker-on-travis
-sudo: required
-
+dist: xenial
+os: linux
+language: python
+python:
+  - "3.6"
 env:
   - distribution: centos
     version: 8
