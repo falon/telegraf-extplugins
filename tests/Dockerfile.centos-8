@@ -24,6 +24,7 @@ RUN dnf config-manager --set-enabled powertools
 RUN dnf -y module enable 389-ds:1.4
 RUN dnf -y install 389-ds-base python3-lib389
 
+# Setup Telegraf
 RUN echo $'[influxdb]\n\
 name = InfluxDB Repository - RHEL \$releasever\n\
 baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable\n\
@@ -31,6 +32,7 @@ enabled = 1\n\
 gpgcheck = 1\n\
 gpgkey = https://repos.influxdata.com/influxdb.key\n '\
 > /etc/yum.repos.d/influxdb.repo
+RUN dnf -y install telegraf
 
 RUN export ANSIBLE_FORCE_COLOR=1
 
