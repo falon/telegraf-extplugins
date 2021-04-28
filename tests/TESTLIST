@@ -1,5 +1,4 @@
-"Setup Directory Server"  dscreate -v from-file /etc/ansible/roles/telegraf-extplugins/tests/ldap.inf
-"Restart Directory Server"  dsctl example restart
-"Ansible Syntax check" ansible-playbook -v /etc/ansible/roles/telegraf-extplugins/tests/test.yml -i /etc/ansible/roles/telegraf-extplugins/tests/inventory --syntax-check
-"Ansible Test Role" ansible-playbook -v /etc/ansible/roles/telegraf-extplugins/tests/test.yml -i /etc/ansible/roles/telegraf-extplugins/tests/inventory
-"Ansible Test Idempotence Role" ansible-playbook -v /etc/ansible/roles/telegraf-extplugins/tests/test.yml -i /etc/ansible/roles/telegraf-extplugins/tests/inventory | grep -q 'changed=0.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
+Setup Directory Server;dscreate;-v;from-file;/etc/ansible/roles/telegraf-extplugins/tests/ldap.inf
+Restart Directory Server;dsctl;example;restart
+Ansible Syntax check;ansible-playbook;-v;/etc/ansible/roles/telegraf-extplugins/tests/test.yml;-i;/etc/ansible/roles/telegraf-extplugins/tests/inventory;--syntax-check
+Ansible Test Role;ansible-playbook;-v;/etc/ansible/roles/telegraf-extplugins/tests/test.yml;-i;/etc/ansible/roles/telegraf-extplugins/tests/inventory
