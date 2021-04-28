@@ -33,7 +33,6 @@ gpgkey = https://repos.influxdata.com/influxdb.key\n '\
 > /etc/yum.repos.d/influxdb.repo
 
 RUN export ANSIBLE_FORCE_COLOR=1
-RUN export PATH=$PATH:/usr/sbin
 
 VOLUME ["/sys/fs/cgroup"]
 

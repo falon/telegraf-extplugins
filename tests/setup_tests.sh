@@ -15,8 +15,8 @@ elif [ "${version}" -eq "6" ]; then
     sudo docker run --privileged --rm=true \
          --volume /sys/fs/cgroup:/sys/fs/cgroup \
          --volume `pwd`:$1:rw \
-         centos:centos${version} \
-         /bin/bash -c "bash -x $1/tests/test_inside_docker.sh;
+         centos-${version}:ansible \
+         /bin/bash -c "bash $1/tests/test_inside_docker.sh;
 	 echo \$? > $1/exit_code.tmp"
 
 elif [ "${version}" -ge "7" ]; then
@@ -25,7 +25,7 @@ elif [ "${version}" -ge "7" ]; then
     sudo docker run --privileged --detach --tty --interactive --env "container=docker" \
            --volume /sys/fs/cgroup:/sys/fs/cgroup \
            --volume `pwd`:$1:rw  \
-           centos:centos${version} \
+           centos-${version}:ansible \
            /usr/sbin/init
 
     export DOCKER_CONTAINER_ID=$(sudo docker ps | grep centos | awk '{print $1}')
