@@ -31,7 +31,7 @@ elif [ "${version}" -ge "7" ]; then
     export DOCKER_CONTAINER_ID=$(sudo docker ps | grep centos | awk '{print $1}')
     sudo docker logs $DOCKER_CONTAINER_ID
     sudo docker exec --tty --interactive $DOCKER_CONTAINER_ID \
-           /bin/bash -c "bash -x $1/tests/test_inside_docker.sh;
+           /bin/bash -c "bash  $1/tests/test_inside_docker.sh;
 	   test_exit=\$?
            echo -ne \"------\nEND SCRIPTS TESTS WITH STATUS \$test_exit\n\";
 	   echo \$test_exit > $1/exit_code.tmp"
