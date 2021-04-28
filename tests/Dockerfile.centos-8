@@ -24,6 +24,8 @@ RUN dnf config-manager --set-enabled powertools
 RUN dnf -y module enable 389-ds:1.4
 RUN dnf -y install 389-ds-base
 
+RUN export ANSIBLE_FORCE_COLOR=1
+
 
 VOLUME ["/sys/fs/cgroup"]
 
