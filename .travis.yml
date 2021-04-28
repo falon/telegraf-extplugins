@@ -16,7 +16,7 @@ before_install:
   - 'sudo docker build --no-cache --rm --file=tests/Dockerfile.${distribution}-${version} --tag=${distribution}-${version}:ansible tests'
 
 before_script:
-  - chmod 700 tests/test_suite.sh
+  - chmod 700 tests/setup_tests.sh
 
 script:
   - tests/setup_tests.sh /etc/ansible/roles/telegraf-extplugins
