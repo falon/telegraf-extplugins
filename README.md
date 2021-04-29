@@ -48,7 +48,7 @@ vars:
 
 roles:
   - dj-wasabi.telegraf
-  - falon.telegraf
+  - falon.telegraf-extplugins
 ```
 
 The role assumes that the `telegraf` user already exists, as created by some Telegraf role which runs before.
